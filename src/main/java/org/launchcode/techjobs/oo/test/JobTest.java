@@ -112,25 +112,27 @@ public class JobTest {
 
         String strWithMissing = testDataNot.toString();
         assertEquals(
-                "\n" + "ID: 7" + "\nName: Yea" +
+                "\n" + "ID: " + testDataNot.getId() + "\nName: Yea" +
                         "\nEmployer: Data not available" +
                 "\nLocation: Desert" + "\nPosition Type: Data not available" +
                         "\nCore Competency: Persistence" + "\n"
                 , strWithMissing);
-//
-//        System.out.println(strWithMissing);
+
+        System.out.println(strWithMissing);
     }
 
-//    @Test
-//    public void testBonus(){
-//        Job testEmpty = new Job();
-//
-//        String testString = testEmpty.toString();
-//
-//        assertEquals( "OOPS! This job does not seem to exist.", testString);
-//
-// //       System.out.println(testString);
-//    }
+    @Test
+    public void testBonus(){
+        Job testEmpty = new Job( "",new Employer(""),
+                new Location(""), new PositionType(""),
+                new CoreCompetency(""));
+
+        String testString = testEmpty.toString();
+
+        assertEquals( "OOPS! This job does not seem to exist.", testString);
+
+        System.out.println(testString);
+    }
 
 
 }

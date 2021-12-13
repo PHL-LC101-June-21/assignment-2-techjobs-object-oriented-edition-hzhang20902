@@ -1,6 +1,6 @@
 package org.launchcode.techjobs.oo;
 
-import java.util.HashMap;
+
 import java.util.Objects;
 import java.util.ArrayList;
 
@@ -53,20 +53,19 @@ public class Job {
 
     @Override
     public String toString(){
-//        String noJobString = "OOPS! This job does not seem to exist.";
+        String noJobString = "OOPS! This job does not seem to exist.";
         String dataNot= "Data not available";
         ArrayList<Object> postProcessedList = new ArrayList<>();
         ArrayList<Object> toStringRefCheckNoID = new ArrayList<>();
         ArrayList<String> nameArr = new ArrayList<>();
 
- //       toStringRefCheckNoID.add(this.getName());
         toStringRefCheckNoID.add(this.getEmployer().getValue());
         toStringRefCheckNoID.add(this.getLocation().getValue());
         toStringRefCheckNoID.add(this.getPositionType().getValue());
         toStringRefCheckNoID.add(this.getCoreCompetency().getValue());
 
-        if (this.getName()=="" || this.getName() == null){
-            nameArr.add( dataNot);
+        if (this.name =="" || this.name == null){
+            nameArr.add(dataNot);
         } else {
             nameArr.add(this.getName());
         }
@@ -78,13 +77,13 @@ public class Job {
                 postProcessedList.add(toStringRefCheckNoID.get(i));
             }
         }
-//        if (nameArr.get(0) == dataNot
-//                && postProcessedList.get(0) == dataNot
-//                && postProcessedList.get(1) == dataNot
-//                && postProcessedList.get(2) == dataNot
-//                && postProcessedList.get(3) == dataNot){
-//            return noJobString;
-//        }
+        if (nameArr.contains(dataNot)
+                && postProcessedList.get(0) == dataNot
+                && postProcessedList.get(1) == dataNot
+                && postProcessedList.get(2) == dataNot
+                && postProcessedList.get(3) == dataNot){
+            return noJobString;
+        }
         String printOut ="\nID: " + this.getId()
                 + "\nName: " + nameArr.get(0)
                 + "\nEmployer: " + postProcessedList.get(0)
